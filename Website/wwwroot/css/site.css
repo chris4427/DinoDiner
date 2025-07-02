@@ -1,0 +1,67 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    scroll-margin-top: 20px;
+    padding-top: 70px;
+}
+
+#entrees{
+    scroll-margin-top: 60px;
+}
+
+#sides {
+    scroll-margin-top: 60px;
+}
+
+#drinks {
+    scroll-margin-top: 60px;
+}
+
+.text-center{
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item {
+    color: darkslategray;
+    border: 1px solid gray;
+    text-align: center;
+    font-size: 1rem;
+    margin: 5px
+}
+
+.name {
+    color: black;
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 5px
+}
+
+.drinks-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+}
+
+.entrees-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr
+}
+
+.sides-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 
+}

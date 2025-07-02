@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="DinoDiner.PointOfSale.PterodactylWingsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DinoDiner.PointOfSale"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:enums="clr-namespace:DinoDiner.Data.Enums;assembly=DinoDiner.Data"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="wingFalvor" MethodName="GetValues" ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:WingSauce"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <RadioButton Content="{TemplateBinding ContentPresenter.Content}" IsChecked="{Binding Path=IsSelected, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" Margin="30">
+                            <RadioButton.LayoutTransform>
+                                <ScaleTransform ScaleX="1.9" ScaleY="1.9"/>
+                            </RadioButton.LayoutTransform>
+                        </RadioButton>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Text='{Binding Name}' Grid.Column="0" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock Text="{Binding Calories, StringFormat={}{0} Calories}" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Column="1"/>
+
+        <ListBox ItemsSource="{Binding Source={StaticResource wingFalvor}}" SelectedItem="{Binding Path=Sauce}" BorderThickness="0" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
+
+    </Grid>
+</UserControl>

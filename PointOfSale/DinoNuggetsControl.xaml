@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="DinoDiner.PointOfSale.DinoNuggetsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DinoDiner.PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="{Binding Name}" TextAlignment="Center" VerticalAlignment="Center" FontSize="25" Grid.Row="0"/>
+        <TextBlock Text="{Binding Calories, StringFormat={}{0} Calories}" Grid.Column="1" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+
+
+        <Button Name="addOneNugget" Grid.Row="1" Grid.ColumnSpan="2" FontSize="20" Click="AddNuggets_Click">
+            Add 1 Nugget
+        </Button>
+        <Button Name="addFiveNuggets" Grid.Row="2" Grid.ColumnSpan="2" FontSize="20" Click="AddNuggets_Click">
+            Add 5 Nuggets
+        </Button>
+        <Button Name="addTenNuggets" Grid.ColumnSpan="2" Grid.Row="3" FontSize="20" Click="AddNuggets_Click">
+            Add 10 Nuggets
+        </Button>
+        <Button Name="addTwentyNuggets" Grid.ColumnSpan="2" Grid.Row="4" FontSize="20" Click="AddNuggets_Click">
+            Add 20 Nuggets
+        </Button>
+    </Grid>
+</UserControl>

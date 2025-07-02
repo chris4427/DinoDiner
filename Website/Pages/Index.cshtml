@@ -1,0 +1,50 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+@using DinoDiner.Data;
+
+<div class="text-center">
+    <h1 class="display-4">For All Your Cravings We Welcome You To The Dino Diner</h1>
+    <h2 class="text-left" id="entrees"><u>Entrees</u></h2>
+    <div class="entrees-list">
+        @foreach (MenuItem entree in @Model.Entrees)
+        {
+            <div class="menu-item">
+                <div class="name">
+                    @entree.Name
+                </div>
+
+                Price: $@entree.Price
+                Calories: $@entree.Calories
+            </div>
+        }
+    </div>
+    <h2 class="text-left" id="sides"><u>Sides</u></h2>
+    <div class="sides-list">
+        @foreach (MenuItem side in @Model.Sides)
+        {
+            <div class="menu-item">
+                <div class="name">
+                    @side.Name
+                </div>
+                Price: $@side.Price
+                Price: $@side.Calories
+            </div>
+        }
+    </div>
+    <h2 class="text-left" id="drinks"><u>Drinks</u></h2>
+    <div class="drinks-list">
+        @foreach (MenuItem drink in @Model.Drinks)
+        {
+            <div class="menu-item">
+                <div class="name">
+                    @drink.Name
+                </div>
+                Price: $@drink.Price
+                Calories: $@drink.Calories
+            </div>
+        }
+    </div>
+</div>
